@@ -36,10 +36,15 @@ const app = Vue.createApp({
         },
         {
           text: "Andare in palestra",
-          done: false,
+          done: true,
         },
       ],
     };
+  },
+  methods: {
+    removeTask(i) {
+      this.tasks.splice(i, 1);
+    },
   },
 });
 
