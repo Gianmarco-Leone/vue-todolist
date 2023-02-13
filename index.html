@@ -37,14 +37,24 @@
 
   <body>
     <div id="app">
+      <nav class="navbar bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="./img/boolean-logo.png" alt="Boolean" height="35" />
+          </a>
+        </div>
+      </nav>
+
       <div class="container">
-        <nav class="navbar bg-dark">
-          <div class="container">
-            <a class="navbar-brand" href="#">
-              <img src="./img/boolean-logo.png" alt="Boolean" height="24" />
-            </a>
-          </div>
-        </nav>
+        <h1 class="text-center my-3">To Do List</h1>
+
+        <div
+          v-if="insertError == true"
+          class="alert alert-danger mt-5"
+          role="alert"
+        >
+          Inserisci almeno un carattere
+        </div>
 
         <div class="input-group input-group-lg my-5">
           <input

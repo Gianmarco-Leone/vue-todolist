@@ -43,20 +43,33 @@ const app = Vue.createApp({
         text: "",
         done: false,
       },
+
+      insertError: false,
     };
   },
   methods: {
-    // MILESTONE 3 - Recupero valore scritto nell'input, lo inserisco in un oggetto non "proxy" e lo aggiungo alla lista dei tasks, infine svuoto l'input tag
+    // **MILESTONE 3** - Recupero valore scritto nell'input, lo inserisco in un oggetto non "proxy" e lo aggiungo alla lista dei tasks, infine svuoto l'input tag
     addTask() {
       const newInsertTask = { text: this.newTask.text };
-      this.tasks.push(newInsertTask);
+
+      //   Aggiungo controllo per non avere elemento della lista vuoto
+      if (this.newTask.text.length > 0) {
+        this.tasks.push(newInsertTask);
+        // Riassegno false per rimuovere il box del messaggio di errore quando inserisco un elemento nella lista
+        this.insertError = false;
+      } else {
+        this.insertError = true;
+      }
+
       this.newTask.text = "";
     },
-    // MILESTONE 2 - Creo una funzione per rimuovere elemento dalla lista
+
+    // **MILESTONE 2** - Creo una funzione per rimuovere elemento dalla lista
     removeTask(i) {
       this.tasks.splice(i, 1);
     },
-    // BONUS 2 - Cliccando sul testo dell'item inverto la condizione "done"
+
+    // **BONUS 2** - Cliccando sul testo dell'item inverto la condizione "done"
     taskToDo(i) {
       if (this.tasks[i].done == true) {
         this.tasks[i].done = false;
