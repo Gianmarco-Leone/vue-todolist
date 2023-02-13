@@ -41,6 +41,7 @@ const app = Vue.createApp({
       ],
       newTask: {
         text: "",
+        done: false,
       },
     };
   },
@@ -54,6 +55,14 @@ const app = Vue.createApp({
     // MILESTONE 2 - Creo una funzione per rimuovere elemento dalla lista
     removeTask(i) {
       this.tasks.splice(i, 1);
+    },
+    // BONUS 2 - Cliccando sul testo dell'item inverto la condizione "done"
+    taskToDo(i) {
+      if (this.tasks[i].done == true) {
+        this.tasks[i].done = false;
+      } else {
+        this.tasks[i].done = true;
+      }
     },
   },
 });
