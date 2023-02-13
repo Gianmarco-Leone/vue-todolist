@@ -27,21 +27,31 @@ const app = Vue.createApp({
     return {
       tasks: [
         {
-          text: "Fare la spesa",
+          text: "Portare fuori il cane",
           done: true,
         },
         {
-          text: "Portare fuori il cane",
-          done: false,
+          text: "Ritirare i panni",
+          done: true,
         },
         {
           text: "Andare in palestra",
-          done: true,
+          done: false,
         },
       ],
+      newTask: {
+        text: "",
+      },
     };
   },
   methods: {
+    // MILESTONE 3 - Recupero valore scritto nell'input, lo inserisco in un oggetto non "proxy" e lo aggiungo alla lista dei tasks, infine svuoto l'input tag
+    addTask() {
+      const newInsertTask = { text: this.newTask.text };
+      this.tasks.push(newInsertTask);
+      this.newTask.text = "";
+    },
+    // MILESTONE 2 - Creo una funzione per rimuovere elemento dalla lista
     removeTask(i) {
       this.tasks.splice(i, 1);
     },

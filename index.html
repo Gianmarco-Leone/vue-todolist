@@ -53,11 +53,14 @@
             placeholder="New task"
             aria-label="New task"
             aria-describedby="button-addon2"
+            v-model="newTask.text"
+            @keyUp.enter="addTask()"
           />
           <button
             class="btn btn-outline-secondary"
             type="button"
             id="button-addon2"
+            @click="addTask()"
           >
             Add task
           </button>
