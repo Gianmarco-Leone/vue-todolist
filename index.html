@@ -55,9 +55,14 @@
         </div>
 
         <ul class="list-group">
-          <li class="list-group-item">Task</li>
-          <li class="list-group-item">Task</li>
-          <li class="list-group-item">Task</li>
+          <li
+            class="list-group-item"
+            v-for="task in tasks"
+            v-bind:class="(task.done == true) ? 'text-decoration-line-through' : '' "
+          >
+            {{task.text}}
+          </li>
+          <!-- <li class="list-group-item">Task</li> -->
         </ul>
       </div>
     </div>
